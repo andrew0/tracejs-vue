@@ -93,12 +93,27 @@ export default {
   },
   methods: {
     updateChart() {
+      // order chart data by y value
+      const sorted = this.chartData.slice().sort((a, b) => b.y - a.y)
+
+      // build map of word -> color
+      const words = []
+      for (const { word } of sorted) {
+        if (!words.includes(word)) {
+          words.push(word)
+        }
+      }
+      const wordColors = {}
+      for (const [index, word] of words.entries()) {
+        wordColors[word] = colorPalette[Math.min(index, colorPalette.length - 1)]
+      }
+
       const chartData = {
         datasets: [{
           label: 'My Matrix',
           data: this.chartData,
           backgroundColor: () => 'transparent',
-          borderColor: ctx => colorPalette[ctx.dataIndex % colorPalette.length],
+          borderColor: ctx => wordColors[ctx.dataset.data[ctx.dataIndex].word],
           borderWidth: () => this.borderWidth,
           width: ctx => {
             const { right, left } = ctx.chart.chartArea
