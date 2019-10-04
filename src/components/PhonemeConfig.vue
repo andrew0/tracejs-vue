@@ -77,7 +77,7 @@ export default {
   data() {
     return {
       continua: [
-        'BUR', 'VOI', 'GRD', 'ACU', 'DIF', 'VOC', 'POW'
+        'POW', 'VOC', 'DIF', 'ACU', 'GRD', 'VOI', 'BUR'
       ],
       numFeatures: 9,
       activePhoneme: null
