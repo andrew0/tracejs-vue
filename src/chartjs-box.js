@@ -62,6 +62,7 @@ Chart.controllers.box = Chart.DatasetController.extend({
       ctx.save()
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
+      ctx.font = 'bold 16px "Helvetica Neue", Helvetica, Arial, sans-serif'
       ctx.fillStyle = borderColor
       dataElement._model.width = ctx.measureText(word).width + xPadding * 2
       dataElement._model.x = xCenter + dataElement._model.width / 2 - xPadding
