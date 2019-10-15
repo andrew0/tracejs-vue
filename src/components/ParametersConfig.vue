@@ -34,6 +34,7 @@
     <parameter-config-input v-model="config.nreps" label="nreps" note="Input presentation rate" />
     <parameter-config-input v-model="config.slicesPerPhon" label="slicesPerPhon" note="Phoneme/Word slices per Feature" />
     <parameter-config-input v-model="config.lengthNormalization" label="lengthNormalization" note="0 or 1; normalize length effects." />
+    <parameter-config-input v-model="config.continuumSpec" label="continuumSpec" note="Ambiguous phoneme continuum" />
   </div>
 </template>
 
