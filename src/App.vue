@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { TraceSim, createDefaultConfig, doSimAnalysis, TraceDomain, TraceCalculationType, TraceChoice } from 'tracejs'
+import { TraceSim, createDefaultConfig, doSimAnalysis, formatAnalysis, TraceDomain, TraceCalculationType, TraceChoice } from 'tracejs'
 import SimulationToolbar from './components/SimulationToolbar.vue'
 import Config from './components/Config.vue'
 import SimulationPage from './components/SimulationPage.vue'
@@ -122,13 +122,7 @@ export default {
       }
     },
     analysisData() {
-      return [
-        ['cycle', ...this.chartData.datasets.map(x => x.label.padEnd(18))].join('\t'),
-        ...Array.from(Array(this.numCycles), (_, cycle) => [
-          cycle,
-          ...this.chartData.datasets.map(x => x.data[cycle].y.toFixed(18))
-        ].join('\t'))
-      ].join('\n')
+      return formatAnalysis(this.chartData.datasets, true)
     }
   },
   watch: {
