@@ -1,4 +1,5 @@
 # tracejs-vue
+Build available here: [https://andrew0.github.io/tracejs-vue/](https://andrew0.github.io/tracejs-vue/)
 
 ## Project setup
 ```
